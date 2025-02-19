@@ -1,0 +1,14 @@
+.vscode
+**__pycache__/
+**.pytest_cache
+**/venv
+**/.ipynb_checkpoints
+
+google
+*.tfstate
+
+.github/workflows/gcp_github_actions_auth.txt
+
+
+terraform/.terraform
+terraform/.terraform.lock.hcl
