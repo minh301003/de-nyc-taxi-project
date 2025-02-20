@@ -104,7 +104,7 @@ resource "google_service_account_iam_member" "composer_sa_user" {
 }
 
 resource "google_service_account_iam_member" "dataproc_sa_user" {
-  service_account_id = "projects/${var.project_id}/serviceAccounts/<your-service-account>@${var.project_id}.iam.gserviceaccount.com"
+  service_account_id = "projects/${var.project_id}/serviceAccounts/de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
   role               = "roles/iam.serviceAccountUser"
   member             = "serviceAccount:de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
 }
