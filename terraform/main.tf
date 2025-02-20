@@ -97,6 +97,12 @@ resource "google_project_iam_member" "custom_service_account" {
   role = "roles/composer.worker"
 }
 
+resource "google_service_account_iam_member" "composer_sa_user" {
+  service_account_id = "projects/${var.project_id}/serviceAccounts/cloud-composer-worker@de-nyc-taxi-project.iam.gserviceaccount.com"
+  role               = "roles/iam.serviceAccountUser"
+  member             = "serviceAccount:de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
+}
+
 # Cloud Composer Environmet
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/composer_environment
 # TODO: google_compute_network, google_compute_subnetwork
