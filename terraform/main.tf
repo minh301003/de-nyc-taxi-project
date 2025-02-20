@@ -23,6 +23,7 @@ resource "google_project_service" "iamcredentials" {
   project                    = var.project_id
   service                    = "iamcredentials.googleapis.com"
   disable_dependent_services = true
+  disable_on_destroy         = false
 }
 
 
