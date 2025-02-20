@@ -18,20 +18,16 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
-    outputs:
-      gcp-cred-path: ${{steps.auth-gcp.outputs.credentials_file_path}}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: 'actions/checkout@v4'
 
       - name: Auth GCP Service Account
-        id: auth-gcp
         uses: 'google-github-actions/auth@v2'
         with:
-          token_format: 'access_token'
-          workload_identity_provider: 'projects/779122383392/locations/global/workloadIdentityPools/github-cloud-run/providers/my-repository'
           service_account: 'de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com'
-
+          workload_identity_provider: 'projects/779122383392/locations/global/workloadIdentityPools/github-cloud-run/providers/my-repository'
+          
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v1
         with:
