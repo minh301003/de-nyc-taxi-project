@@ -10,10 +10,13 @@ terraform {
   }
 }
 
+
 provider "google" {
   project = var.project_id
   region  = var.region
 }
+
+
 
 # Enable Required API services for the project
 resource "google_project_service" "iamcredentials" {

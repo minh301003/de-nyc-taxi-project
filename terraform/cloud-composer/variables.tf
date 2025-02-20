@@ -1,5 +1,5 @@
 locals {
-  composer_name = "${var.project_id}-composer-test"
+  composer_name = "${var.project_id}-composer"
 }
 
 variable "project_id" {
