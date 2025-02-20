@@ -129,12 +129,6 @@ resource "google_composer_environment" "composer_environment" {
 
 # Dataproc cluster
 
-gce_cluster_config {
-  service_account        = "de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
-  service_account_scopes = ["cloud-platform"]
-}
-
-
 resource "google_dataproc_cluster" "dataproc_cluster" {
   name   = "dataproc-cluster"
   region = var.region
