@@ -11,14 +11,15 @@ on:
     paths:
       - 'terraform/**'
       - '.github/workflows/infrastructure-apply.yaml'
+      
+permissions:
+    contents: 'read'
+    id-token: 'write'
 
 jobs:
   setup:
     name: 'Setup GCP and Terraform'
     runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write'
     steps:
       - name: Checkout
         uses: 'actions/checkout@v4'
