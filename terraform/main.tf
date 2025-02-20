@@ -72,8 +72,8 @@ resource "google_project_service" "cloud-composer" {
 
 resource "google_project_service" "composer_api" {
   provider = google
-  project = var.project_id
-  service = "composer.googleapis.com"
+  project  = var.project_id
+  service  = "composer.googleapis.com"
   // Disabling Cloud Composer API might irreversibly break all other
   // environments in your project.
   disable_on_destroy = false
@@ -84,7 +84,7 @@ resource "google_project_service" "composer_api" {
 }
 
 resource "google_service_account" "custom_service_account" {
-  provider = google
+  provider     = google
   account_id   = "custom-service-account"
   display_name = "Composer Worker Service Account"
 }
@@ -94,7 +94,7 @@ resource "google_project_iam_member" "custom_service_account" {
   project  = var.project_id
   member   = format("serviceAccount:%s", "cloud-composer-worker@de-nyc-taxi-project.iam.gserviceaccount.com")
   // Role for Public IP environments
-  role     = "roles/composer.worker"
+  role = "roles/composer.worker"
 }
 
 
