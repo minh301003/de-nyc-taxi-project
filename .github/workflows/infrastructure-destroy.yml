@@ -8,6 +8,10 @@ defaults:
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   destroy:
     name: 'Terraform  Destroy'
