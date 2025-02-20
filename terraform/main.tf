@@ -144,9 +144,9 @@ resource "google_dataproc_cluster" "dataproc_cluster" {
     }
 
     software_config {
-    image_version = "2.0.35-debian10"
-    override_properties = {
-      "dataproc:dataproc.allow.zero.workers" = "true"
+      image_version = "2.0.35-debian10"
+      override_properties = {
+        "dataproc:dataproc.allow.zero.workers" = "true"
       }
     }
   }
