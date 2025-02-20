@@ -129,35 +129,3 @@ resource "google_composer_environment" "composer_environment" {
 }
 
 
-# Dataproc cluster
-
-resource "google_dataproc_cluster" "dataproc_cluster" {
-  name   = "dataproc-cluster"
-  region = var.region
-
-  cluster_config {
-    master_config {
-      num_instances = 1
-      machine_type  = "n1-standard-4"
-      disk_config {
-        boot_disk_size_gb = 30
-      }
-    }
-
-    worker_config {
-      num_instances = 2
-      machine_type  = "n1-standard-4"
-      disk_config {
-        boot_disk_size_gb = 30
-      }
-    }
-
-    software_config {
-      image_version = "2.0.35-debian10"
-      override_properties = {
-        "dataproc:dataproc.allow.zero.workers" = "true"
-      }
-    }
-  }
-}
-
