@@ -17,10 +17,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Auth GCP Service Account
+        id: auth-gcp
         uses: google-github-actions/auth@v0
         with:
-          credentials_json: ${secrets.GCP_CREDENTIALS}
-          cleanup_credentials: false
+          token_format: 'access_token'
+          workload_identity_provider: 'projects/779122383392/locations/global/workloadIdentityPools/github-cloud-run/providers/my-repository'
+          service_account: 'de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com'
 
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v1
