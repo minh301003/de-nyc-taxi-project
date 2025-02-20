@@ -103,6 +103,19 @@ resource "google_service_account_iam_member" "composer_sa_user" {
   member             = "serviceAccount:de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
 }
 
+resource "google_service_account_iam_member" "dataproc_sa_user" {
+  service_account_id = "projects/${var.project_id}/serviceAccounts/<your-service-account>@${var.project_id}.iam.gserviceaccount.com"
+  role               = "roles/iam.serviceAccountUser"
+  member             = "serviceAccount:de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "dataproc_editor" {
+  project = var.project_id
+  member  = "serviceAccount:de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
+  role    = "roles/dataproc.editor"
+}
+
+
 # Cloud Composer Environmet
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/composer_environment
 # TODO: google_compute_network, google_compute_subnetwork
