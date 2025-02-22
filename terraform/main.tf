@@ -105,7 +105,7 @@ resource "google_service_account_iam_member" "composer_sa_user" {
   member             = "serviceAccount:de-nyc-taxi-service-account@de-nyc-taxi-project.iam.gserviceaccount.com"
 }
 
-# Cloud Composer Environmet
+# Cloud Composer Environment
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/composer_environment
 # TODO: google_compute_network, google_compute_subnetwork
 resource "google_composer_environment" "composer_environment" {

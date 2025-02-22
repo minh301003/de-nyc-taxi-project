@@ -3,7 +3,7 @@ locals {
   data_lake_bucket       = "${local.project_id}_data-lake"
   bigquery_dataset       = "${local.project_id}_all_data"
   composer_name          = "${var.project_id}-composer"
-  cloud_composer_enabled = 1
+  cloud_composer_enabled = 0
 }
 
 variable "project_name" {

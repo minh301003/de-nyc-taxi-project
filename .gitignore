@@ -7,6 +7,11 @@
 .google
 *.tfstate
 
+# .env
+airflow/logs
+airflow/plugins
+
+
 
 
 .github/workflows/gcp_github_actions_auth.txt
